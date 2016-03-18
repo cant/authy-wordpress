@@ -70,7 +70,6 @@ function authy_token_form( $username, $user_data, $user_signature, $redirect, $r
             <br>
             <input type="tel" name="authy_token" id="authy-token" class="input" value="" size="20" autofocus="true" />
           </label>
-          <input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect ); ?>"/>
           <input type="hidden" name="username" value="<?php echo esc_attr( $username ); ?>"/>
           <input type="hidden" name="rememberme" value="<?php echo esc_attr( $remember_me ); ?>"/>
           <?php if ( isset( $user_signature['authy_signature'] ) && isset( $user_signature['signed_at'] ) ) { ?>
