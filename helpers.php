@@ -108,7 +108,7 @@ function render_enable_authy_page( $user, $signature, $errors = array() ) {?>
           }
         ?>
         <p class="message"><?php _e( 'Your administrator has requested that you add Two-Factor Authentication to your account, please enter your cellphone below to enable.', 'authy' ); ?></p>
-        <form method="POST" id="authy" action="wp-login.php">
+        <form method="POST" id="authy" action="<?php echo wp_login_url(); ?>">
           <label for="authy_user[country_code]"><?php _e( 'Country', 'authy' ); ?></label>
           <input type="text" name="authy_user[country_code]" id="authy-countries" class="input" />
 
@@ -183,7 +183,7 @@ function authy_installation_form( $user, $user_data, $user_signature, $errors ) 
         <?php if ( !empty( $errors ) ) {?>
             <div id="login_error"><strong><?php echo esc_attr_e( 'ERROR: ', 'authy' ); ?></strong><?php echo esc_attr_e( $errors, 'authy' ); ?></div>
         <?php } ?>
-        <form method="POST" id="authy" action="wp-login.php">
+        <form method="POST" id="authy" action="<?php echo wp_login_url(); ?>">
           <p><?php echo esc_attr_e( 'To activate your account you need to setup Authy Two-Factor Authentication.', 'authy' ); ?></p>
 
           <label for="authy_token">
