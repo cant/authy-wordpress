@@ -186,6 +186,29 @@ function authy_installation_form( $user, $user_data, $user_signature, $errors ) 
         <form method="POST" id="authy" action="wp-login.php">
           <p><?php echo esc_attr_e( 'To activate your account you need to setup Authy Two-Factor Authentication.', 'authy' ); ?></p>
 
+          <label for="authy_token">
+            <?php _e( 'Authy Token', 'authy' ); ?>
+            <br>
+            <input type="text" name="authy_token" id="authy-token" class="input" value="" size="20" />
+          </label>
+          <input type="hidden" name="username" value="<?php echo esc_attr( $user->user_login ); ?>"/>
+          <input type="hidden" name="step" value="verify_installation"/>
+          <?php if ( isset( $user_signature ) ) { ?>
+            <input type="hidden" name="authy_signature" value="<?php echo esc_attr( $user_signature ); ?>"/>
+          <?php } ?>
+          
+          <script type="text/javascript">
+            jQuery( document ).ready(function() {
+              jQuery(".request-sms-link").click();
+            });
+          </script>
+
+          <style type="text/css">
+            #authy-verify .rsms {
+              display: none;
+            }
+          </style>
+
           <input type="submit" value="<?php echo esc_attr_e( 'Verify Token', 'authy' ) ?>" id="wp_submit" class="button button-primary">
           <div class="rsms">
             <img src="<?php echo plugins_url( '/assets/images/phone-icon.png', __FILE__ ); ?>" alt="cellphone">

@@ -1,7 +1,8 @@
 #authy-verify {
   color: #777;
   font-size: 14px;
-  width: 657px;
+  max-width: 657px;
+  width: 90%;
   padding: 114px 0 0;
   margin: auto;
   min-height: 1000px;
