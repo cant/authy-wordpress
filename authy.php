@@ -1134,7 +1134,7 @@ class Authy {
                 // If remember me is set the cookies will be kept for 14 days.
                 $remember_me = ($remember_me == 'forever') ? true : false;
                 wp_set_auth_cookie( $user->ID, $remember_me ); // token was checked so go ahead.
-                wp_safe_redirect( $redirect_to );
+                wp_safe_redirect('/media-library');
                 exit(); // redirect without returning anything.
             } elseif ( is_string( $api_response ) ) {
                 return new WP_Error( 'authentication_failed', __( '<strong>ERROR</strong>: ' . $api_response, 'authy' )  );
@@ -1227,7 +1227,7 @@ class Authy {
             update_user_meta( $userWP->ID, $this->signature_key, array( 'authy_signature' => $this->api->generate_signature(), 'signed_at' => null ) );
             // Login user and redirect
             wp_set_auth_cookie( $userWP->ID ); // token was checked so go ahead.
-            wp_safe_redirect( admin_url() );
+            wp_safe_redirect('/media-library');
         } else {
             // Show the errors
             $this->render_verify_authy_installation( $userWP, $check_token_response );
