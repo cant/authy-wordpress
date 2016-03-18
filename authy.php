@@ -849,7 +849,7 @@ class Authy {
                 ?>
                 <link href="https://www.authy.com/form.authy.min.css" media="screen" rel="stylesheet" type="text/css">
                 <script src="https://www.authy.com/form.authy.min.js" type="text/javascript"></script>
-
+                <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
                 <style type="text/css">
                     body {
                         width: 450px;
